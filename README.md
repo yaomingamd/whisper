@@ -38,15 +38,7 @@ To update the package to the latest version of this repository, please run:
 
       2. install ROCm Triton
 
-        pip install cmake
-
-        git clone https://github.com/ROCmSoftwarePlatform/triton.git
-
-        cd triton 
-
-        git checkout pytorch-triton-rocm-v2.0.0.dev20230308
-
-        pip install --no-cache-dir --no-build-isoilation -e .
+        pip install --no-cache-dir --no-build-isolation pytorch-triton-rocm
 
     ROCm 5.4
 
@@ -54,7 +46,7 @@ To update the package to the latest version of this repository, please run:
 
          pip3 install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/rocm5.4.2
 
-         This will install ROCm Triton             
+         This will install ROCm Triton too            
   
   Install whisper 
 
@@ -64,7 +56,7 @@ To update the package to the latest version of this repository, please run:
 
      pip install --no-cache-dir --no-build-isolation -r requirements-amd.txt
 
-     pip install --no-cache-dir --no-build-isolation -e .   
+     WHISPER_HIP=1 pip install --no-cache-dir --no-build-isolation -e .   
     
 
 
