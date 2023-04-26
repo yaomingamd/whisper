@@ -50,11 +50,11 @@ To update the package to the latest version of this repository, please run:
 
      a. directly from github
             
-        WHISPER_HIP=1 pip install --no-cache-dir --no-build-isolation git+https://github.com/yaomingamd/openai_whisper.git@amd_dev 
+        WHISPER_HIP=1 pip install --no-cache-dir --no-build-isolation git+https://github.com/yaomingamd/whisper.git@amd_dev 
 
      b. build local
  
-     git clone https://github.com/yaomingamd/openai_whisper.git
+     git clone https://github.com/yaomingamd/whisper.git
 
      cd openai_whisper
     
