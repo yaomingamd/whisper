@@ -12,9 +12,17 @@ def read_version(fname="whisper/version.py"):
 
 
 requirements = []
+whisper_hip = os.getenv('WHISPER_HIP',default='0')
+if whisper_hip == "1" :
+    requirements_file = "requirements-amd.txt"
+else :
+    requirements_file = "requirements.txt"
 if sys.platform.startswith("linux") and platform.machine() == "x86_64":
-    requirements.append("triton==2.0.0")
-
+    if whisper_hip == "1" :
+        requirements.append("pytorch_triton_rocm==2.0.1")
+    else :    
+        requirements.append("triton==2.0.0")
+  
 setup(
     name="openai-whisper",
     py_modules=["whisper"],
@@ -32,7 +40,7 @@ setup(
     + [
         str(r)
         for r in pkg_resources.parse_requirements(
-            open(os.path.join(os.path.dirname(__file__), "requirements.txt"))
+            open(os.path.join(os.path.dirname(__file__), requirements_file))
         )
     ],
     entry_points={
