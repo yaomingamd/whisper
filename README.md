@@ -29,16 +29,15 @@ To update the package to the latest version of this repository, please run:
 
     pip install --upgrade --no-deps --force-reinstall git+https://github.com/openai/whisper.git
 ## Installation Guide for ROCm enviroment
+
   Requirements
+
     ROCm 5.2
      
       1. install ROCm torch torchaudio torchvision         
      
    pip install torch==1.13.1+rocm5.2 torchvision==0.14.1+rocm5.2 torchaudio==0.13.1 --extra-index-url https://download.pytorch.org/whl/rocm5.2
 
-      2. install ROCm Triton
-
-        pip install --no-cache-dir --no-build-isolation pytorch-triton-rocm
 
     ROCm 5.4
 
@@ -46,15 +45,20 @@ To update the package to the latest version of this repository, please run:
 
          pip3 install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/rocm5.4.2
 
-         This will install ROCm Triton too            
   
   Install whisper 
 
+     a. directly from github
+            
+        WHISPER_HIP=1 pip install --no-cache-dir --no-build-isolation git+https://github.com/AMD-AI/openai_whisper.git@amd_dev 
+
+     b. build local
+ 
      git clone https://github.com/AMD-AI/openai_whisper.git
 
      cd openai_whisper
-
-     pip install --no-cache-dir --no-build-isolation -r requirements-amd.txt
+    
+     git checkout amd_dev
 
      WHISPER_HIP=1 pip install --no-cache-dir --no-build-isolation -e .   
     
